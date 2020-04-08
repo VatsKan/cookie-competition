@@ -1,0 +1,201 @@
+:root {
+  --main: hsla(28, 79%, 65%, 0.892);
+  --secondary: hsl(0, 0%, 100%);
+  --cookie-col: hsl(39, 93%, 76%); 
+  --choco-chip-col: hsl(28, 48%, 29%); 
+
+}
+
+* {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--secondary);
+  align-items: center;
+  font-family: "Lato", sans-serif;
+}
+
+header {
+  width: 100%;
+}
+
+.header__title {
+  padding: 0.5em;
+  font-family: "Fugaz One", cursive;
+  text-align: center;
+  color: var(--secondary);
+}
+
+/* glow effect */
+
+.glow {
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px var(--secondary),
+      0 0 40px var(--secondary), 0 0 50px var(--secondary),
+      0 0 60px var(--secondary), 0 0 70px var(--secondary);
+  }
+  to {
+    text-shadow: 0 0 20px white, 0 0 30px var(--main),
+      0 0 40px var(--main), 0 0 50px var(--main),
+      0 0 60px var(--main), 0 0 70px var(--main),
+      0 0 80px var(--main);
+  }
+}
+
+/* navbar */
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  color: var(--main);
+  padding: 1rem;
+}
+
+.navbar__links {
+  color: var(--main);
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1px solid var(--main);
+  transition: 0.2s ease-in-out;
+}
+
+.navbar__links:hover {
+  background-color: var(--main);
+  color: var(--secondary);
+}
+
+/* cookie description */
+.cookie__description, .cookie__name{
+  color: var(--main);
+  font-size: 1.5rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+h2{
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+/* cookie container */
+.container {
+  width: 100vw;
+  text-align: center;
+} 
+
+/* cookie body */
+.cookie{
+  width: 45vw;
+  height: 45vw;
+  margin: 2rem;
+  border-radius: 50%;
+  background-image: linear-gradient(to top right, hsl(39, 93%, 76%), hsl(39, 61%, 60%), hsla(39, 46%, 55%, 0.762), hsl(39, 93%, 76%));
+  box-shadow: 0px 0px 30px 5px rgb(85, 59, 9);
+  background-color: var(--cookie-col);
+
+  /* grid properties */
+  display: inline-grid;
+  grid-template-columns: 12vw 12vw 12vw;
+  grid-template-areas: 
+  '. center-top right-top'
+  'left-top center-mid right-bot'
+  'left-bot center-bot .';
+  grid-column-gap: 3vw; 
+  justify-items: center;
+  align-items: center;
+}
+
+/* choco chips */
+.choco-chip{
+  border-radius: 50%;
+  background-color: var(--choco-chip-col);
+  width: 5vw;
+  height: 5vw;
+} 
+.center{
+
+} 
+.center--1{
+  grid-area: center-top;
+}
+.center--2{
+  grid-area: center-mid;
+  position: relative;
+  right: 10px;
+}
+.center--3{
+  grid-area: center-bot;
+}
+.right{
+  position: relative;
+  right: 30px;
+  top: 40px;
+}
+.right--1{
+  grid-area: right-top;
+}
+.right--2{
+  grid-area: right-bot;
+  position: relative;
+  top: 50px;
+}
+.left{
+  position: relative;
+  bottom: 60px;
+  left: 30px;
+}
+.left--1{
+  grid-area: left-top;
+}
+.left--2{
+  grid-area: left-bot;
+}
+/* crunch split */
+.split{
+  /* display: block; */
+  width: 45vw;
+  padding: 1em; 
+  background-color: var(--secondary);
+  border: 1px solid var(--cookie-col);
+  border-radius: 100%;
+  box-shadow: inset 0 0 25px rgb(60, 41, 6);
+  transform: rotate(30deg) translate(22vw, -2vw); 
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-width: 768px) {
+  /* .container {
+    width: 80vw;
+    padding: 4rem;
+  } */
+  .glow {
+    font-size: 4rem;
+  }
+  .navbar {
+    padding: 1.5rem;
+  }
+
+  .navbar__links {
+    padding: 0.9rem;
+    font-size: 1.2rem;
+  }
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* .container {
+    width: 60vw;
+    padding: 5rem;
+  } */
+  .glow {
+    font-size: 5rem;
+  }
+}
